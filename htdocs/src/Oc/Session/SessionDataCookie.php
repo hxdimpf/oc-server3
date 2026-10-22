@@ -120,12 +120,9 @@ class SessionDataCookie implements SessionDataInterface
 
     public function close(): void
     {
-        global $opt;
-
-        setcookie(
-            $opt['session']['cookiename'] . 'data',
-            '',
-            time() - 1
-        );
+        // Called by OcSmarty before every display/redirect. It used to delete the session
+        // cookie without path and domain, which logged the user out on the next request
+        // whenever the cookie was host-only (empty session domain). header() writes the
+        // changes and deletes the cookie (with path and domain) when the session is cleared.
     }
 }

@@ -96,3 +96,6 @@ ansible/
 /testsystem-2.md
 /testsystem.md
 /php84-compatibility.txt
+CLAUDE.md
+AGENTS.md
+.claude/
